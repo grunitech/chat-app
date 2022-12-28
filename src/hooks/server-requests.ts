@@ -1,14 +1,16 @@
 import { Message } from '../types/message';
-import { mockUsers } from '../assets/mockUsers'; // todo: remove this line after server implementation
+// import { mockUsers } from '../assets/mockUsers'; // todo: remove this line after server implementation
 
-const endpoint = '../assets/'; // todo: add endpoint (server) address (starting with http://)
-
+const endpoint = 'http://localhost:3001'; // todo: add endpoint (server) address (starting with http://)
+const mockUsers = await getUsers();
 
 /**
  * GET Request to get the list of messages
  **/
+
 export async function getMessages() {
   // todo: replace this with fetch to get the messages from the server
+  // const  mockMessages  = await fetch(`${endpoint}/messages`)
   const { mockMessages } = await import(`${endpoint}/mockMessages`);
 
   // todo: this should be implemented in the server. Chat Messages should already have the authors' names.
@@ -27,8 +29,8 @@ export async function getMessages() {
  **/
 export async function getUsers() {
   // todo: replace this with fetch to get the user list from the server
-  const { mockUsers } = await import(`${endpoint}/mockUsers`);
-  return mockUsers;
+  const mockUsers  = await fetch (`${endpoint}/users`);
+  return (await mockUsers.json()) ;
 }
 
 
