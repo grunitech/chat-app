@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "tsnd --respawn src/index.ts",
     "build": "tsc",
-    "start": "node --experimental-modules --es-module-specifier-resolution=node dist/services/messages.js"
+    "start": "node --experimental-modules --es-module-specifier-resolution=node dist/index.js"
   },
   "repository": {
     "type": "git",
