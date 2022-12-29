@@ -52,6 +52,7 @@ export async function getUserDetails(userId: number) {
 
 /**
  * POST request to add a message. The message contains: id, body, timestamp, authorId
+ * -->DONE<--
  **/
 export async function addNewMessage(message: Message) {
   // todo: implement sending a new message to the server
@@ -60,14 +61,27 @@ export async function addNewMessage(message: Message) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(message)
   };
+  console.log(requestOptions)
   const res = await fetch(`${endpoint}/messages`, requestOptions)
   return (await res.json());
-
 }
 
 /**
  * POST request to change the user's like of a message
  **/
 export async function changeMessageLikes(messageId: number, userId: number, like: boolean) {
-  // todo: implement sending a rquest to change the like of a message by the user
+  const message= {
+    messageId: messageId,
+    userId: userId,
+    like: like
+  }
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(message)
+  };
+  const res = await fetch(`${endpoint}/messages/likes`, requestOptions)
+  return (await res.json());
 }
+
+  // todo: implement sending a request to change the like of a message by the user
