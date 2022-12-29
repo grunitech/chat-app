@@ -230,3 +230,5 @@ export const mockUserDetails = [
     }
   }
 ];
+
+export default mockUserDetails;

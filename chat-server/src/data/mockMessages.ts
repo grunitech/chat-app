@@ -1272,3 +1272,5 @@ export const mockMessages = [
     ]
   }
 ];
+
+export default mockMessages;

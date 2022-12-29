@@ -5,7 +5,7 @@ const app = express();
 
 app.use(cors());
 
-app.listen(4000, '0.0.0.0', () => {
+app.listen(4002, '0.0.0.0', () => {
     console.log('Server is running');
 });
 
