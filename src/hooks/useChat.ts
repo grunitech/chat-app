@@ -56,16 +56,16 @@ export function useChat() {
       await addNewMessage(newMessage);
 
       // todo - remove these lines - mocking changing the message status
-      setTimeout(() => {
-        setMessages([
-          ...messages, {
-            ...newMessage,
-            likes: [],
-            authorName: currentUser!.name,
-            status: 'ok'
-          }
-        ]);
-      }, 1000);
+      // setTimeout(() => {
+      //   setMessages([
+      //     ...messages, {
+      //       ...newMessage,
+      //       likes: [],
+      //       authorName: currentUser!.name,
+      //       status: 'ok'
+      //     }
+      //   ]);
+      // }, 1000);
     }
   };
 
