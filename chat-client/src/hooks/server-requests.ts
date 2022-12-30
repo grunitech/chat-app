@@ -27,11 +27,9 @@ export async function getUsers() {
  * GET request to get the full details of a user
  **/
 export async function getUserDetails(userId: number) {
-  // todo: replace this with fetch to get the user details from the server.
-  //  For mocking example, we're calling an external JSON service.
-  //  You can use mockUserDetails.ts for the list of user details in the server.
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users?id=${userId}`);
-  return (await res.json())[0];
+  const response = await fetch(`${url}/users/${userId}`);
+  const userDetails = await response.json();
+  return userDetails;
 }
 
 /**

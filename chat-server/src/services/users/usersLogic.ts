@@ -6,3 +6,4 @@ export function convertUsersToNameIdOnly() {
     });
     return newUsersList;
 }
+
