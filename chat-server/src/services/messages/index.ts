@@ -11,7 +11,7 @@ messages.get('/',(req: Request, res: Response) => {
     res.send(messagesListWithNames);
 });
 
-messages.post('/newMessage', bodyParser.json(), (req: Request, res: Response) => {
+messages.post('/', bodyParser.json(), (req: Request, res: Response) => {
     const newMessage = req.body;
     newMessage.likes = [];
     newMessage.authorName = mockUserDetails.find(user => newMessage.authorId === user.id).name;
