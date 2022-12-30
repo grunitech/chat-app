@@ -1,33 +1,28 @@
 import { Message } from '../types/message';
 import { mockUsers } from '../assets/mockUsers'; // todo: remove this line after server implementation
+import { User } from '../types/user';
 
-const endpoint = '../assets/'; // todo: add endpoint (server) address (starting with http://)
-
+const endpoint = 'http://localhost:5000';
 
 /**
  * GET Request to get the list of messages
  **/
 export async function getMessages() {
-  // todo: replace this with fetch to get the messages from the server
-  const { mockMessages } = await import(`${endpoint}/mockMessages`);
 
-  // todo: this should be implemented in the server. Chat Messages should already have the authors' names.
-  // todo: remove this mapping when getting the data from the server
-  const mockMessagesWithNames = mockMessages.map((message: Message) => {
-    const author = mockUsers.find(user => user.id === message.authorId);
-    const authorName = author && author.name;
-    return { ...message, authorName };
-  });
-
-  return mockMessagesWithNames;
+  // MY IMPLEMENTATION
+  const mockMessages = await fetch(`${endpoint}/mockMessages`)
+    .then((response) => response.json());
+  return mockMessages;
 }
 
 /**
  * GET request to get the full list of users - id + name
  **/
 export async function getUsers() {
-  // todo: replace this with fetch to get the user list from the server
-  const { mockUsers } = await import(`${endpoint}/mockUsers`);
+
+  // MY IMPLEMENTATION
+  const mockUsers = await fetch(`${endpoint}/mockUsers`)
+  .then((response) => response.json());
   return mockUsers;
 }
 
@@ -36,23 +31,40 @@ export async function getUsers() {
  * GET request to get the full details of a user
  **/
 export async function getUserDetails(userId: number) {
-  // todo: replace this with fetch to get the user details from the server.
-  //  For mocking example, we're calling an external JSON service.
-  //  You can use mockUserDetails.ts for the list of user details in the server.
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users?id=${userId}`);
-  return (await res.json())[0];
-}
+
+// MY IMPLEMENTATION
+  const response = await fetch(`${endpoint}/users?id=${userId}`);
+  const user: User = await response.json();
+
+ return user;
+
+};
 
 /**
  * POST request to add a message. The message contains: id, body, timestamp, authorId
  **/
 export async function addNewMessage(message: Message) {
-  // todo: implement sending a new message to the server
-}
+  const response = await fetch(`${endpoint}/newmessage`, {
+                                                                method: 'POST',
+                                                                headers: {'Content-Type': 'application/json'},
+                                                                body: JSON.stringify({...message}),
+                                                                   });
+  const newMessage = await response.json();
+  return newMessage;
+};
 
 /**
  * POST request to change the user's like of a message
  **/
 export async function changeMessageLikes(messageId: number, userId: number, like: boolean) {
-  // todo: implement sending a rquest to change the like of a message by the user
-}
+  const response = await fetch(`${endpoint}/like`, {
+                                                          method: 'POST',
+                                                          headers: {'Content-Type': 'application/json'},
+                                                          body: JSON.stringify({messageId: messageId,
+                                                                                        userId: userId,
+                                                                                        like: like}),
+                                                                                        });
+  const updatedMesssage = await response.json();
+  console.log(updatedMesssage)
+  return updatedMesssage;
+};
