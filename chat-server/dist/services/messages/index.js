@@ -2,13 +2,13 @@ import { Router } from 'express';
 import bodyParser from 'body-parser';
 import addUsersNamesToMsgs from './convertMessages';
 import mockUserDetails from '../../data/mockUserDetails';
-import mockMessages from 'data/mockMessages';
+import mockMessages from '../../data/mockMessages';
 export const messages = Router();
 messages.get('/', (req, res) => {
     const messagesListWithNames = addUsersNamesToMsgs();
     res.send(messagesListWithNames);
 });
-messages.post('/', bodyParser.json(), (req, res) => {
+messages.post('/newMessage', bodyParser.json(), (req, res) => {
     const newMessage = req.body;
     newMessage.likes = [];
     newMessage.authorName = mockUserDetails.find(user => newMessage.authorId === user.id).name;

@@ -29,7 +29,8 @@ export function useChat() {
   };
 
   const addMessage = async (event: any) => {
-    if (event.key === 'Enter' && event.target.value) {let newMessage = {
+    if (event.key === 'Enter' && event.target.value) {
+      const newMessage = {
         id: messages.length + 1, // in reality, id should be added by the server
         timestamp: new Date(),
         body: event.target.value,
@@ -56,7 +57,7 @@ export function useChat() {
             ...newMessage,
             likes: [],
             authorName: currentUser!.name,
-            status: messageToServerStatus? 'ok' : 'pending'
+            status: messageToServerStatus? 'ok': 'error'
           }
         ]);
       return;
