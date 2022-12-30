@@ -29,8 +29,7 @@ export function useChat() {
   };
 
   const addMessage = async (event: any) => {
-    if (event.key === 'Enter' && event.target.value) {
-      const newMessage = {
+    if (event.key === 'Enter' && event.target.value) {let newMessage = {
         id: messages.length + 1, // in reality, id should be added by the server
         timestamp: new Date(),
         body: event.target.value,
@@ -49,21 +48,18 @@ export function useChat() {
         }
       ]);
 
-      // todo - bonus: handle changing the message status from 'pending' to 'ok'
-      //  when a success response is returned from the server
-      await addNewMessage(newMessage);
-
-      // todo - remove these lines - mocking changing the message status
-      setTimeout(() => {
-        setMessages([
+      const messageToServerStatus = await addNewMessage(newMessage);
+      console.log("after");
+      
+      setMessages([
           ...messages, {
             ...newMessage,
             likes: [],
             authorName: currentUser!.name,
-            status: 'ok'
+            status: messageToServerStatus? 'ok' : 'pending'
           }
         ]);
-      }, 1000);
+      return;
     }
   };
 

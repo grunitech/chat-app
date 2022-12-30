@@ -1,9 +1,10 @@
 import { Message } from '../types/message';
 import { mockUsers } from '../assets/mockUsers'; // todo: remove this line after server implementation
+import { mockMessages } from '../assets/mockMessages';
 
 const endpoint = '../assets/' // todo: add endpoint (server) address (starting with http://)
 
-const url = 'http://localhost:4000';
+const url = 'http://localhost:4001';
 /**
  * GET Request to get the list of messages
  **/
@@ -36,12 +37,14 @@ export async function getUserDetails(userId: number) {
  * POST request to add a message. The message contains: id, body, timestamp, authorId
  **/
 export async function addNewMessage(message: Message) {
-  // const method = 'POST';
-  // const headers = {
-  //   'content-type': 'application/json'
-  // };
-  // const body = JSON.stringify(message);
-  // return fetch(`${url}/messages`, {method, headers, body}).then(res => res.json());
+  const method = 'POST';
+  const headers = {
+    'content-type': 'application/json'
+  };
+  const body = JSON.stringify(message);
+  const res = await fetch(`${url}/messages`, {method, headers, body});
+  if (res.status === 200) return true;
+  return false;
 }
 
 
