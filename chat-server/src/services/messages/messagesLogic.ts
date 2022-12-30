@@ -8,7 +8,7 @@ function findUserNameById(userId: number): string {
     };
 }
 
-export default function addUsersNamesToMsgs() {
+export function addUsersNamesToMsgs() {
     const newMsgsList = mockMessages.map((msg) => {
         const name = findUserNameById(msg.authorId);
         return {...msg, authorName: name };

@@ -1,11 +1,11 @@
-// import { Router, Request, Response } from 'express';
-// import addUsersNamesToMsgs from './convertMessages';
+import { Router, Request, Response } from 'express';
+import {convertUsersToNameIdOnly} from './usersLogic';
 
-// export const messages = Router();
+export const users = Router();
 
-// messages.get('/',(req: Request, res: Response) => {
-//     const messagesListWithNames = addUsersNamesToMsgs();
-//     res.send(messagesListWithNames);
-// });
+users.get('/',(req: Request, res: Response) => {
+    const usersWithNamesIdsOnly = convertUsersToNameIdOnly();
+    res.send(usersWithNamesIdsOnly);
+});
 
-// export default messages;
+export default users;

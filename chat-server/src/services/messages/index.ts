@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import addUsersNamesToMsgs from './convertMessages';
+import {addUsersNamesToMsgs} from './messagesLogic';
 
 export const messages = Router();
 
