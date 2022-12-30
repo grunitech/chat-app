@@ -31,7 +31,7 @@ export function useChat() {
   const addMessage = async (event: any) => {
     if (event.key === 'Enter' && event.target.value) {
       const newMessage = {
-        id: messages.length + 1, // in reality, id should be added by the server
+        id: messages.length + 1, 
         timestamp: new Date(),
         body: event.target.value,
         authorId: currentUser!.id,
