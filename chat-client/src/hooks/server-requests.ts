@@ -7,7 +7,7 @@ const url = 'http://localhost:4000';
 /**
  * GET Request to get the list of messages
  **/
-export async function getMessages(): Promise<Object[]> {
+export async function getMessages() {
   const response = await fetch(`${url}/messages`);
   const messageWithNames = await response.json();
   return messageWithNames;
@@ -36,8 +36,14 @@ export async function getUserDetails(userId: number) {
  * POST request to add a message. The message contains: id, body, timestamp, authorId
  **/
 export async function addNewMessage(message: Message) {
-  // todo: implement sending a new message to the server
+  // const method = 'POST';
+  // const headers = {
+  //   'content-type': 'application/json'
+  // };
+  // const body = JSON.stringify(message);
+  // return fetch(`${url}/messages`, {method, headers, body}).then(res => res.json());
 }
+
 
 /**
  * POST request to change the user's like of a message

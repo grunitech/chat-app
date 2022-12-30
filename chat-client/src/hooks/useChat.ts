@@ -38,8 +38,7 @@ export function useChat() {
         // todo: likes should be initialized in the server,
         // todo: authorName should be added by the server
       };
-
-
+      
       setMessages([
         ...messages,
         {
@@ -49,7 +48,6 @@ export function useChat() {
           status: 'pending'
         }
       ]);
-
 
       // todo - bonus: handle changing the message status from 'pending' to 'ok'
       //  when a success response is returned from the server
