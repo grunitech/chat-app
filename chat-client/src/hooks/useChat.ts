@@ -35,8 +35,6 @@ export function useChat() {
         timestamp: new Date(),
         body: event.target.value,
         authorId: currentUser!.id,
-        // todo: likes should be initialized in the server,
-        // todo: authorName should be added by the server
       };
       
       setMessages([
@@ -50,14 +48,13 @@ export function useChat() {
       ]);
 
       const messageToServerStatus = await addNewMessage(newMessage);
-      console.log("after");
       
       setMessages([
           ...messages, {
             ...newMessage,
             likes: [],
             authorName: currentUser!.name,
-            status: messageToServerStatus? 'ok': 'error'
+            status: messageToServerStatus? 'ok': 'pending'
           }
         ]);
       return;
@@ -74,9 +71,8 @@ export function useChat() {
   };
 
   const openAuthorDetails = async (author: User) => {
-    setSelectedAuthor(author); // name and id only
+    setSelectedAuthor(author);
     setSelectedAuthor(await getUserDetails(author.id) || null);
-    // todo: get user details from the server
   };
 
   return {
