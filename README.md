@@ -1,18 +1,15 @@
-CHAT APP
+# CHAT APP 
+**Instructions**
+1. Run the app with terminal/cmd.
 
-Instructions
+2. run the server first: 
+	go to 'chat-server' folder --> cd './chat-server'.
 
-Run the app with terminal/cmd.
+3. write 'npm start'.
 
-** run the server first **
+4. return to main folder & run the client:
+ go to 'chat-client' folder --> cd '../chat-client'.
 
-1. go to 'chat-server' folder --> cd './chat-server'
-2. write 'npm start'
+5. write 'npm start'.
 
-** return to the main folder & run the client **
-
-3. go to 'chat-client' folder --> cd '../chat-client'
-4. write 'npm start'
-
-That`s It!
 
