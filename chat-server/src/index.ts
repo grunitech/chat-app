@@ -11,7 +11,7 @@ app.use('/messages', messages);
 
 app.use('/users', users);
 
-app.listen(3000, () => {
+app.listen(3000, '0.0.0.0', () => {
     console.log('Server is running');
 });
 
