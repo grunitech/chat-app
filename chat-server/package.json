@@ -1,24 +1,14 @@
 {
-  "name": "nodejs-ts-express-lecture",
+  "name": "chat-app",
   "version": "1.0.0",
-  "description": "Example project with ts and express",
-  "main": "index.js",
+  "description": "chat-app",
   "type": "module",
   "scripts": {
     "dev": "tsnd --respawn src/index.ts",
     "build": "tsc",
     "start": "node --experimental-modules --es-module-specifier-resolution=node dist/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/grunitech/nodejs-ts-express-lecture.git"
-  },
-  "author": "Grunitch Students",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/grunitech/nodejs-ts-express-lecture/issues"
-  },
-  "homepage": "https://github.com/grunitech/nodejs-ts-express-lecture#readme",
   "devDependencies": {
     "@types/body-parser": "^1.19.2",
     "@types/chai": "^4.3.4",
