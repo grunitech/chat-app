@@ -1,7 +1,7 @@
 import {Message} from '../types/message';
 import {User} from '../types/user';
 
-const url: string = 'http://localhost:2005';
+const url: string = 'http://localhost:3000';
 
 /**
  * GET Request to get the list of messages
@@ -47,7 +47,7 @@ export async function addNewMessage(message: Message): Promise<boolean> {
 
 /**
  * POST request to change the user's like of a message
- **/
+**/
 export async function changeMessageLikes(messageId: number, userId: number, like: boolean): Promise<boolean> {
   const likeDeatils: Object = {messageId, userId, like};
   const response: Response = await fetch(`${url}/messages/like`, {
