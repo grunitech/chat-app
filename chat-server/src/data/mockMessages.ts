@@ -1,4 +1,14 @@
-export const mockMessages = [
+export interface Message {
+  id: number;
+  body: string;
+  authorId: number;
+  authorName?: string;
+  timestamp: number | Date;
+  likes?: number[];
+  status?: 'pending' | 'ok' | 'error';
+}
+
+export const mockMessages: Message[] = [
   {
     "authorId": 3,
     "id": 1,

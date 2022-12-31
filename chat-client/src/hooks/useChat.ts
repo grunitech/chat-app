@@ -54,7 +54,7 @@ export function useChat() {
             ...newMessage,
             likes: [],
             authorName: currentUser!.name,
-            status: messageToServerStatus? 'ok': 'pending'
+            status: messageToServerStatus? 'ok': 'error'
           }
         ]);
       return;

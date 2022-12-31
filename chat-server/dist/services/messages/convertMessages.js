@@ -1,4 +1,4 @@
-import mockMessages from '../../data/mockMessages';
+import { mockMessages } from '../../data/mockMessages';
 import mockUserDetails from '../../data/mockUserDetails';
 export default function addUsersNamesToMsgs() {
     const newMsgsList = mockMessages.map((msg) => {

@@ -1,4 +1,10 @@
-export const mockUserDetails = [
+export interface User {
+  id: number;
+  name: string;
+  [key: string]: string | object | number;
+}
+
+export const mockUserDetails: User[] = [
   {
     "id": 1,
     "name": "Leanne Graham",

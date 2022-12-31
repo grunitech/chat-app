@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { convertUsersToNameIdOnly } from './convertUsers';
-import mockUserDetails from '../../data/mockUserDetails';
+import { mockUserDetails } from '../../data/mockUserDetails';
 export const users = Router();
 users.get('/', (req, res) => {
     const usersWithNamesIdsOnly = convertUsersToNameIdOnly();

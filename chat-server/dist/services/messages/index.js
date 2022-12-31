@@ -2,7 +2,7 @@ import { Router } from 'express';
 import bodyParser from 'body-parser';
 import addUsersNamesToMsgs from './convertMessages';
 import mockUserDetails from '../../data/mockUserDetails';
-import mockMessages from '../../data/mockMessages';
+import { mockMessages } from '../../data/mockMessages';
 export const messages = Router();
 messages.get('/', (req, res) => {
     const messagesListWithNames = addUsersNamesToMsgs();
