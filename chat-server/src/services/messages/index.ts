@@ -11,11 +11,23 @@ messages.get('/',(req: Request, res: Response) => {
     res.send(messagesListWithNames);
 });
 
-messages.post('/', bodyParser.json(), (req: Request, res: Response) => {
+messages.post('/new-message', bodyParser.json(), (req: Request, res: Response) => {
     const newMessage = req.body;
     newMessage.likes = [];
     newMessage.authorName = mockUserDetails.find(user => newMessage.authorId === user.id).name;
     mockMessages.push(newMessage);
+    res.sendStatus(200);
+});
+
+messages.post('/like', bodyParser.json(), (req: Request, res: Response) => {
+    const {messageId, userId, like} = req.body;
+    const messageObject = mockMessages.find(message => message.id === Number(messageId));
+    if(like) {
+        messageObject.likes.push(Number(userId));
+    }
+    else {
+        messageObject.likes = messageObject.likes.filter(id => id !== Number(userId));
+    }
     res.sendStatus(200);
 });
 

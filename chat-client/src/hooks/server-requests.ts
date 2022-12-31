@@ -1,6 +1,6 @@
 import { Message } from '../types/message';
 
-const url = 'http://localhost:4013';
+const url = 'http://localhost:3000';
 
 /**
  * GET Request to get the list of messages
@@ -34,7 +34,7 @@ export async function getUserDetails(userId: number) {
  * POST request to add a message. The message contains: id, body, timestamp, authorId
  **/
 export async function addNewMessage(message: Message) {
-  const response = await fetch(`${url}/messages`, {
+  const response = await fetch(`${url}/messages/new-message`, {
     method: 'POST',
     body: JSON.stringify(message),
     headers: {
@@ -50,5 +50,14 @@ export async function addNewMessage(message: Message) {
  * POST request to change the user's like of a message
  **/
 export async function changeMessageLikes(messageId: number, userId: number, like: boolean) {
-  // todo: implement sending a rquest to change the like of a message by the user
+  const likeDeatils = {messageId, userId, like};
+  const response = await fetch(`${url}/messages/like`, {
+    method: 'POST',
+    body: JSON.stringify(likeDeatils),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  if (response.status === 200) return true;
+  return false;
 }

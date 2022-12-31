@@ -65,8 +65,7 @@ export function useChat() {
     const userLiked = message.likes!.indexOf(currentUser!.id);
     userLiked === -1 ? message.likes!.push(currentUser!.id) : message.likes!.splice(userLiked, 1);
     setSelectedMessage({ ...message });
-
-    // todo: change the likes in the server
+    
     await changeMessageLikes(message.id, currentUser!.id, userLiked !== -1);
   };
 
