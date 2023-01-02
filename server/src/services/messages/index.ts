@@ -7,6 +7,7 @@ import {mockMessages, Message} from '../../data/mockMessages';
 export const messages = Router();
 
 messages.get('/',(req: Request, res: Response) => {
+    console.log(req);
     const messagesListWithNames: Message[] = addUsersNamesToMsgs();
     res.send(messagesListWithNames);
 });

@@ -1,12 +1,11 @@
 {
-  "name": "chat-app",
+  "name": "server",
   "version": "1.0.0",
-  "description": "chat-app",
-  "type": "module",
+  "main": "index.js",
   "scripts": {
     "dev": "tsnd --respawn src/index.ts",
     "build": "tsc",
-    "start": "node --experimental-modules --es-module-specifier-resolution=node dist/index.js"
+    "start": "ts-node src/index.ts"
   },
   "license": "ISC",
   "devDependencies": {
@@ -16,6 +15,7 @@
     "@types/express": "^4.17.15",
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.11.17",
+    "@types/pg": "^8.6.6",
     "@types/supertest": "^2.0.12",
     "chai": "^4.3.7",
     "mocha": "^10.2.0",
