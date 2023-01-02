@@ -3,7 +3,7 @@
 1. Run the app with terminal/cmd.
 
 2. run the server first: 
-	go to 'chat-server' folder --> write  cd './chat-server'.
+	go to 'server' folder --> write  cd './server'.
 
 3. write 'npm start'.
 
