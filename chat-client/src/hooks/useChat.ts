@@ -66,7 +66,7 @@ export function useChat() {
     userLiked === -1 ? message.likes!.push(currentUser!.id) : message.likes!.splice(userLiked, 1);
     setSelectedMessage({ ...message });
     
-    await changeMessageLikes(message.id, currentUser!.id, userLiked !== -1);
+    await changeMessageLikes(message.id, currentUser!.id, userLiked === -1);
   };
 
   const openAuthorDetails = async (author: User) => {

@@ -1,7 +1,7 @@
 import {Message} from '../types/message';
 import {User} from '../types/user';
 
-const url: string = 'http://localhost:3001';
+const url: string = 'http://localhost:3010';
 
 /**
  * GET Request to get the list of messages
