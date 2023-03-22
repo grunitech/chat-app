@@ -1,5 +1,5 @@
 # CHAT APP 
-**Instructions**
+**Instructions!**
 1. Run the app with terminal/cmd.
 
 2. run the server first: 
@@ -11,5 +11,7 @@
  go to 'chat-client' folder --> write cd '../chat-client'.
 
 5. write 'npm start'.
+
+
 
 
